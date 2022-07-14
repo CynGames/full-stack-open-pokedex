@@ -1,1 +1,9 @@
-Run echo "Hello Warudo"
+name: Hello Warudo!
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-20.04
+    steps:
+      -name: Say hello
+      run:
+        echo "Hello Warudooo!"
