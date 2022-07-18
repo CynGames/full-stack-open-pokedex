@@ -13,6 +13,9 @@ const mapResults = (({ results }) => results.map(({ url, name }) => ({
 })))
 
 const App = () => {
+
+  // eslint-disable-next-line no-console
+  console.log("first")
   const { data: pokemonList, error, isLoading } = useApi("https://pokeapi.co/api/v2/pokemon/?limit=784", mapResults)
   if (isLoading) {
     return <LoadingSpinner />
