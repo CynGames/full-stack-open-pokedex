@@ -16,5 +16,5 @@ jobs:
           heroku_app_name: "cyngames-pokedex-fullstack" #Must be unique in Heroku
           heroku_email: "tomasm.leguizamon@gmail.com"
           healthcheck: "https://cyngames-pokedex-fullstack.herokuapp.com/health"
-          checkstring: "ok"
+          checkstring: "o"
           rollbackonhealthcheckfailed: true
