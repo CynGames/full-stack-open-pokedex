@@ -17,3 +17,4 @@ jobs:
           heroku_email: "tomasm.leguizamon@gmail.com"
           healthcheck: "https://cyngames-pokedex-fullstack.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
