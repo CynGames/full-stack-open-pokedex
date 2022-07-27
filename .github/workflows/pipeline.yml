@@ -29,12 +29,27 @@ jobs:
     if: ${{ github.event_name == 'push' }}
     needs: [simple_deployment_pipeline]
     steps:
-    - name: Discord notification
+    - name: Discord Success Notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      if: ${{ success() }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'Ass deployed and ready for fisting.'
+        args: 'Sum code has been deployed successfully.'
+    - name: Discord Failure Notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      if: ${{ failure() }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'Code deployment failed.'
+    - name: Discord Cancelled Notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      if: ${{ cancelled() }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'Workflow cancelled or interrupted.'
   tag_release:
     if: ${{ github.event_name == 'push' }}
     needs: [simple_deployment_pipeline]
